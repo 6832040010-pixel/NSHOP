@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSHOP — ศูนย์รวมสิ่งอำนวยความสะดวกและอุปกรณ์ร้านค้า</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top Announcement Bar -->
+  <div class="top-banner">
+    <span>NSHOP — ศูนย์รวมอุปกรณ์และสิ่งอำนวยความสะดวกในร้านค้า ครบจบในที่เดียว พร้อมส่งทั่วไทย</span>
+  </div>
+
+  <!-- Main Header / Navbar -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="#" class="brand-logo" id="brandHomeBtn">N-SHOP</a>
+        <nav class="nav-links" id="navLinks">
+          <button class="nav-link active" data-filter="ทั้งหมด">สินค้าทั้งหมด</button>
+          <button class="nav-link" data-filter="ระบบ POS">ระบบคิดเงิน POS</button>
+          <button class="nav-link" data-filter="ชั้นวาง & ตู้แช่">ชั้นวาง &amp; ตู้แช่</button>
+          <button class="nav-link" data-filter="อุปกรณ์หน้าร้าน">อุปกรณ์หน้าร้าน</button>
+          <button class="nav-link" id="bookmarkNavBtn" data-filter="__BOOKMARK__">
+            รายการโปรด <span class="badge-count" id="bookmarkCount">0</span>
+          </button>
+          <button class="nav-link admin-nav-btn" id="openAdminBtn">
+            <span class="gear-icon">⚙</span> Admin
+          </button>
+        </nav>
+      </div>
+
+      <div class="nav-right">
+        <div class="theme-switch-wrap">
+          <span class="theme-label" id="themeLabel">DARK</span>
+          <label class="switch" title="สลับโหมดมืด/สว่าง">
+            <input type="checkbox" id="themeToggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="ค้นหาสินค้า, หมวดหมู่, รหัส..."
+            autocomplete="off"
+          />
+          <button class="search-btn" id="searchClearBtn" aria-label="ค้นหา">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner Carousel -->
+  <section class="hero-section" id="heroSection">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+
+    <button class="hero-arrow hero-prev" id="heroPrev" aria-label="ก่อนหน้า">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="hero-content" id="heroContent">
+      <!-- Populated by JS -->
+    </div>
+
+    <button class="hero-arrow hero-next" id="heroNext" aria-label="ถัดไป">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+    <!-- Category / Tag Filter Bar -->
+    <div class="tag-bar-wrap">
+      <div class="tag-bar" id="tagBar">
+        <button class="tag-pill active" data-tag="ทั้งหมด">ทั้งหมด</button>
+        <button class="tag-pill" data-tag="ระบบ POS">ระบบ POS</button>
+        <button class="tag-pill" data-tag="ชั้นวางสินค้า">ชั้นวางสินค้า</button>
+        <button class="tag-pill" data-tag="ตู้แช่ & ความเย็น">ตู้แช่ &amp; ความเย็น</button>
+        <button class="tag-pill" data-tag="สแกนเนอร์">สแกนเนอร์</button>
+        <button class="tag-pill" data-tag="ความปลอดภัย">ความปลอดภัย</button>
+        <button class="tag-pill" data-tag="เคาน์เตอร์">เคาน์เตอร์</button>
+        <button class="tag-pill" data-tag="ไฟ & ป้ายร้าน">ไฟ &amp; ป้ายร้าน</button>
+      </div>
+      <button class="tag-all-btn" id="resetFiltersBtn">ดูทั้งหมด</button>
+    </div>
+
+    <!-- Intro / Tagline Block -->
+    <section class="intro-block">
+      <h2 class="intro-title">อุปกรณ์ร้านค้า คุณภาพสูง พร้อมส่ง ครบทุกหมวดหมู่</h2>
+      <p class="intro-desc">
+        ยกระดับร้านค้าของคุณด้วยสิ่งอำนวยความสะดวกระดับมืออาชีพ — NSHOP รวบรวมเครื่องคิดเงิน POS ชั้นวางสินค้า ตู้แช่เครื่องดื่ม
+        ระบบกล้องวงจรปิด และอุปกรณ์ตกแต่งหน้าร้านครบวงจร พร้อมระบบบันทึก Bookmark และจัดการสต็อกสำหรับแอดมิน
+      </p>
+    </section>
+
+    <!-- Popular / Main Grid Section -->
+    <section class="panel-box" id="popularSection">
+      <div class="panel-header">
+        <div class="panel-title-group">
+          <h3 class="panel-title" id="mainGridTitle">สินค้ายอดนิยม</h3>
+          <span class="item-total-badge" id="itemTotalBadge">0 รายการ</span>
+        </div>
+        <div class="panel-tabs" id="panelTabs">
+          <button class="panel-tab active" data-group="ทั้งหมด">ทั้งหมด</button>
+          <button class="panel-tab" data-group="ระบบ POS">ระบบ POS</button>
+          <button class="panel-tab" data-group="ชั้นวาง & ตู้แช่">ชั้นวาง &amp; ตู้แช่</button>
+          <button class="panel-tab" data-group="อุปกรณ์หน้าร้าน">อุปกรณ์หน้าร้าน</button>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Product cards injected by JS -->
+      </div>
+
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-icon">📦</div>
+        <h3>ไม่พบรายการสินค้าในหมวดหมู่นี้</h3>
+        <p>ลองค้นหาด้วยคำอื่น หรือเพิ่มสินค้าใหม่ได้ที่หน้า Admin</p>
+        <button class="btn-primary" id="emptyResetBtn">แสดงสินค้าทั้งหมด</button>
+      </div>
+    </section>
+
+    <!-- Bottom 2-Column Section -->
+    <section class="bottom-two-col">
+      <!-- Left: Latest Updates -->
+      <div class="panel-box">
+        <div class="panel-header">
+          <h3 class="panel-title">อัปเดตสินค้ามาใหม่ล่าสุด</h3>
+          <button class="see-all-link" id="seeAllLatestBtn">ดูทั้งหมด &gt;</button>
+        </div>
+        <div class="latest-grid" id="latestGrid">
+          <!-- Compact horizontal cards injected by JS -->
+        </div>
+      </div>
+
+      <!-- Right: Recommended Ranking -->
+      <div class="panel-box">
+        <div class="panel-header">
+          <h3 class="panel-title">สินค้าแนะนำประจำร้าน</h3>
+          <button class="see-all-link" id="seeAllRankBtn">ดูทั้งหมด &gt;</button>
+        </div>
+        <div class="ranking-list" id="rankingList">
+          <!-- Ranked items injected by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-brand">N-SHOP</span>
+      <span>© 2026 NSHOP Store Facilities &amp; Equipment. ระบบจัดการสิ่งอำนวยความสะดวกในร้านค้า</span>
+    </div>
+  </footer>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-backdrop hidden" id="productModalBackdrop">
+    <div class="modal-card detail-modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="closeProductModal" aria-label="ปิด">&times;</button>
+      <div class="detail-body" id="productModalBody">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Login & Dashboard Modal -->
+  <div class="modal-backdrop hidden" id="adminModalBackdrop">
+    <div class="modal-card admin-modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="closeAdminModal" aria-label="ปิด">&times;</button>
+
+      <!-- Admin Login View -->
+      <div id="adminLoginView" class="admin-login-view">
+        <div class="admin-login-header">
+          <span class="gear-badge">⚙</span>
+          <h2>เข้าสู่ระบบผู้ดูแล (Admin)</h2>
+          <p>กรุณากรอกรหัสผู้ดูแลเพื่อจัดการ เพิ่ม และเคลียร์สินค้าในร้าน</p>
+        </div>
+        <form id="adminLoginForm" class="admin-login-form">
+          <div class="form-group">
+            <label for="adminUsername">รหัสข้างบน (Username)</label>
+            <input
+              type="text"
+              id="adminUsername"
+              placeholder="กรอกชื่อผู้ใช้..."
+              autocomplete="username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="adminPassword">รหัสข้างล่าง (Password)</label>
+            <input
+              type="password"
+              id="adminPassword"
+              placeholder="กรอกรหัสผ่าน..."
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <div class="login-error hidden" id="loginError">
+            ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง
+          </div>
+          <button type="submit" class="btn-gold full-width">เข้าสู่ระบบ Admin</button>
+        </form>
+      </div>
+
+      <!-- Admin Dashboard View -->
+      <div id="adminDashboardView" class="admin-dashboard-view hidden">
+        <div class="admin-dash-header">
+          <div>
+            <h2>⚙ จัดการสินค้าและสิ่งอำนวยความสะดวก (Admin)</h2>
+            <p class="admin-user-tag">เข้าสู่ระบบในนาม: <strong id="loggedInAdminName">Prct</strong></p>
+          </div>
+          <div class="admin-dash-actions">
+            <button type="button" class="btn-outline" id="restoreDefaultBtn">คืนค่าสินค้าเริ่มต้น</button>
+            <button type="button" class="btn-danger" id="clearAllItemsBtn">🗑 เคลียร์ของทั้งหมด</button>
+            <button type="button" class="btn-ghost" id="adminLogoutBtn">ออกจากระบบ</button>
+          </div>
+        </div>
+
+        <div class="admin-grid">
+          <!-- Add / Edit Product Form -->
+          <div class="admin-form-panel">
+            <h3 id="formPanelTitle">+ เพิ่มสินค้าใหม่</h3>
+            <form id="addProductForm" class="admin-add-form">
+              <input type="hidden" id="editProductId" value="" />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="prodTitle">ชื่อสินค้า / อุปกรณ์ *</label>
+                  <input type="text" id="prodTitle" placeholder="เช่น เครื่องคิดเงิน POS จอคู่" required />
+                </div>
+                <div class="form-group">
+                  <label for="prodCategory">หมวดหมู่ *</label>
+                  <select id="prodCategory" required>
+                    <option value="ระบบ POS">ระบบ POS</option>
+                    <option value="ชั้นวางสินค้า">ชั้นวางสินค้า</option>
+                    <option value="ตู้แช่ & ความเย็น">ตู้แช่ &amp; ความเย็น</option>
+                    <option value="สแกนเนอร์">สแกนเนอร์</option>
+                    <option value="ความปลอดภัย">ความปลอดภัย</option>
+                    <option value="เคาน์เตอร์">เคาน์เตอร์</option>
+                    <option value="ไฟ & ป้ายร้าน">ไฟ &amp; ป้ายร้าน</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row three-col">
+                <div class="form-group">
+                  <label for="prodPrice">ราคา (บาท) *</label>
+                  <input type="number" id="prodPrice" min="0" step="1" placeholder="12900" required />
+                </div>
+                <div class="form-group">
+                  <label for="prodStock">จำนวนสต็อก *</label>
+                  <input type="number" id="prodStock" min="0" step="1" placeholder="15" required />
+                </div>
+                <div class="form-group">
+                  <label for="prodBadge">ป้ายกำกับ (Badge)</label>
+                  <input type="text" id="prodBadge" placeholder="POS / RACK / NEW" value="NEW" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="prodPresetImg">เลือกรูปภาพที่มีในระบบ</label>
+                  <select id="prodPresetImg">
+                    <option value="assets/images/pos-terminal.jpg">เครื่องคิดเงิน POS (pos-terminal)</option>
+                    <option value="assets/images/display-rack.svg">ชั้นวางสินค้า (display-rack)</option>
+                    <option value="assets/images/glass-chiller.jpg">ตู้แช่กระจก (glass-chiller)</option>
+                    <option value="assets/images/barcode-scanner.svg">เครื่องสแกนบาร์โค้ด (barcode-scanner)</option>
+                    <option value="assets/images/cctv-camera.jpg">กล้องวงจรปิด CCTV (cctv-camera)</option>
+                    <option value="assets/images/checkout-counter.svg">เคาน์เตอร์คิดเงิน (checkout-counter)</option>
+                    <option value="assets/images/shopping-cart.svg">รถเข็นและตะกร้า (shopping-cart)</option>
+                    <option value="assets/images/led-sign.svg">ป้ายไฟ LED หน้าร้าน (led-sign)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="prodImageFile">หรืออัปโหลดรูปจากเครื่อง</label>
+                  <input type="file" id="prodImageFile" accept="image/*" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="prodImageUrl">หรือวางลิงก์รูปภาพ (URL)</label>
+                <input type="url" id="prodImageUrl" placeholder="https://example.com/image.jpg (ไม่บังคับ)" />
+              </div>
+
+              <div class="form-group">
+                <label for="prodDesc">รายละเอียดสินค้า</label>
+                <textarea id="prodDesc" rows="2" placeholder="อธิบายคุณสมบัติและจุดเด่นของอุปกรณ์..."></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn-primary" id="saveProductBtn">บันทึกเพิ่มสินค้า</button>
+                <button type="button" class="btn-ghost hidden" id="cancelEditBtn">ยกเลิกการแก้ไข</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Inventory List / Clear Individual Items -->
+          <div class="admin-list-panel">
+            <div class="admin-list-head">
+              <h3>รายการสินค้าในระบบ (<span id="adminItemCount">0</span>)</h3>
+            </div>
+            <div class="admin-inventory-list" id="adminInventoryList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

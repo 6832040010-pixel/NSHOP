@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#92400e"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bg)"/>
+  <ellipse cx="300" cy="650" rx="250" ry="30" fill="#020617" opacity="0.7"/>
+  <!-- Checkout Counter Body -->
+  <rect x="70" y="340" width="460" height="280" rx="10" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <rect x="55" y="320" width="490" height="28" rx="6" fill="url(#wood)"/>
+  <!-- LED Underglow -->
+  <rect x="85" y="612" width="430" height="8" rx="4" fill="#38bdf8"/>
+  <rect x="85" y="608" width="430" height="16" rx="8" fill="#38bdf8" opacity="0.28"/>
+  <!-- Front Accent Slats -->
+  <rect x="105" y="378" width="390" height="185" rx="8" fill="#1f2937"/>
+  <rect x="130" y="405" width="340" height="14" rx="4" fill="url(#wood)"/>
+  <rect x="130" y="435" width="340" height="14" rx="4" fill="url(#wood)"/>
+  <rect x="130" y="465" width="340" height="14" rx="4" fill="url(#wood)"/>
+  <!-- POS on Countertop -->
+  <rect x="235" y="210" width="130" height="90" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+  <rect x="285" y="300" width="30" height="20" fill="#475569"/>
+  <text x="300" y="700" text-anchor="middle" fill="#f59e0b" font-family="sans-serif" font-size="18" font-weight="bold">MODERN CHECKOUT COUNTER</text>
+</svg>
